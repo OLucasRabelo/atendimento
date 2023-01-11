@@ -3,8 +3,8 @@ default: &default
   encoding: utf8
   pool: 20
   timeout: 5000
-  username: atendimento 
-  password: atendimento
+  username: postgres
+  password: 123mudar
   host: localhost
   database: postgres
   schema_search_path: atendimento
