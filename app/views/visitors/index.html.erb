@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Visitors</h1>
+<h1>Visitantes</h1>
 
-<table>
+<table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Document</th>
+      <th>Nome</th>
+      <th>Documento</th>
       <th>Telefone</th>
-      <th>Sector</th>
-      <th>Localuser</th>
+      <th>Setor</th>
+      <th>Colaborador ViceGov</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,7 +24,7 @@
         <td><%= visitor.localuser %></td>
         <td><%= link_to 'Show', visitor %></td>
         <td><%= link_to 'Edit', edit_visitor_path(visitor) %></td>
-        <td><%= link_to 'Destroy', visitor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', visitor, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,6 @@
 
 <br>
 
-<%= link_to 'New Visitor', new_visitor_path %>
+
+ <%= link_to 'Nova Visita', new_visitor_path, class: 'btn btn-outline-primary' %>
+
