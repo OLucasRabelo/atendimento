@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Visitors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Document</th>
+      <th>Telefone</th>
+      <th>Sector</th>
+      <th>Localuser</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visitors.each do |visitor| %>
+      <tr>
+        <td><%= visitor.name %></td>
+        <td><%= visitor.document %></td>
+        <td><%= visitor.telefone %></td>
+        <td><%= visitor.sector %></td>
+        <td><%= visitor.localuser %></td>
+        <td><%= link_to 'Show', visitor %></td>
+        <td><%= link_to 'Edit', edit_visitor_path(visitor) %></td>
+        <td><%= link_to 'Destroy', visitor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Visitor', new_visitor_path %>
