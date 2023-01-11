@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 20
+  timeout: 5000
+  username: atendimento 
+  password: atendimento
+  host: localhost
+  database: postgres
+  schema_search_path: atendimento
+
+development:
+  <<: *default
+  #database: atendimento_development
+
+test:
+  <<: *default
+  database: atendimento_test
+
+production:
+  <<: *default
+  database: atendimento_production
+  username: atendimento
+  password: <%= ENV['ATENDIMENTO_DATABASE_PASSWORD'] %>
