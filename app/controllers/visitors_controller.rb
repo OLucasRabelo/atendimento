@@ -1,4 +1,5 @@
 class VisitorsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_visitor, only: %i[ show edit update destroy ]
 
   # GET /visitors or /visitors.json
@@ -12,7 +13,7 @@ class VisitorsController < ApplicationController
 
   # GET /visitors/new
   def new
-    @visitor = Visitor.new
+    @visitor = current_user.visitor.new
   end
 
   # GET /visitors/1/edit
@@ -21,7 +22,7 @@ class VisitorsController < ApplicationController
 
   # POST /visitors or /visitors.json
   def create
-    @visitor = Visitor.new(visitor_params)
+    @visitor = current_user.visitor.new(visitor_params)
 
     respond_to do |format|
       if @visitor.save
@@ -65,6 +66,6 @@ class VisitorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def visitor_params
-      params.require(:visitor).permit(:name, :document, :telefone, :sector, :localuser)
+      params.require(:visitor).permit(:name, :document, :telefone, :sector, :localuser, :user_id)
     end
 end
